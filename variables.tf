@@ -1,5 +1,5 @@
 variable instance_type {
   type        = string
   default     = "t2.micro"
-  description = "Instance Type"
+  description = "Instance Type "
 }
