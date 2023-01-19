@@ -1,0 +1,17 @@
+name: "Terraform infra"
+on: 
+  push
+Jobs: 
+  Validate:
+    runs-on: ubuntu-latest
+     steps:
+       - name: Checkout the code to VM
+         uses: actions/checkout@v3
+       - name: Install terraform 
+         uses: hashicorp/setup-terraform@v1
+       - name: Terraform format
+         run: |
+             terraform fmt
+       - name: Terraform Validate
+         run: |
+             terraform validate
