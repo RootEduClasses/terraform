@@ -25,5 +25,5 @@ jobs:
         },
         "required_status_checks": null,
         "enforce_admins": null,
-        "required_pull_request_reviews": null
+        "required_pull_request_reviews": True
         }'
