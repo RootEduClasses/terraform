@@ -32,6 +32,9 @@ jobs:
         "dismiss_stale_reviews": true,
         "require_last_push_approval": true,
         "bypass_pull_request_allowances": {
+        "users": ["root-edu"]
+        },
+        "bypass_pull_request_allowances": {
             "users": [],
             "teams": [],
             "apps": []
