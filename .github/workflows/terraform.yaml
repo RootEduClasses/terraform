@@ -31,6 +31,7 @@ jobs:
         "required_approving_review_count":2,
         "dismiss_stale_reviews": true,
         "require_last_push_approval": true,
+        "required_conversation_resolution": true,
         "bypass_pull_request_allowances": {
             "users": ["root-edu"],
             "teams": [],
