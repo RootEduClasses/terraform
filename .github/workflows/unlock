@@ -1,0 +1,24 @@
+name: unlock
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: Release version to be locked
+        required: true
+
+jobs:
+  lock-or-unlock:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Branch Protection
+      env:
+        GH_TOKEN: ${{ secrets.GH_KEY }}
+        REL: ${{github.event.inputs.release_version}}
+      run: |
+        curl -L \
+        -X DELETE \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer $GH_TOKEN" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        https://api.github.com/repos/RootEduClasses/terraform/branches/release/platform-$REL/protection/restrictions
