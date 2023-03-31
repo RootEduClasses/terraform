@@ -1,8 +1,11 @@
-name: lock-or-unlock
+name: lock
 
 on:
-  push:
-permissions: write-all
+  workflow_dispatch:
+    inputs:
+      release_version:
+        description: Release version to be locked
+        required: true
 
 jobs:
   lock-or-unlock:
@@ -11,13 +14,14 @@ jobs:
     - name: Run Branch Protection
       env:
         GH_TOKEN: ${{ secrets.GH_KEY }}
+        REL: ${{github.event.inputs.release_version}}
       run: |
         curl -L \
         -X PUT \
         -H "Accept: application/vnd.github+json" \
         -H "Authorization: Bearer $GH_TOKEN" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
-        https://api.github.com/repos/RootEduClasses/terraform/branches/demo/protection \
+        https://api.github.com/repos/Roche-DIA-RIS-Platform/branch_protection-test/branches/release/platform-$REL/protection \
         -d '{
         "restrictions": {
             "users": [],
