@@ -22,25 +22,46 @@ jobs:
         -H "Authorization: Bearer $GH_TOKEN" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         https://api.github.com/repos/RootEduClasses/terraform/branches/release/platform-$REL/protection \
-        -d '{
-        "restrictions": {
-            "users": [],
-            "teams": []
-        },
-        "required_status_checks": null,
-        "required_conversation_resolution": true,
-        "enforce_admins": null,
-        "required_pull_request_reviews":
+        -d '{ "required_status_checks": 
         {
-        "require_code_owner_reviews": true,
-        "required_approving_review_count":2,
+        "strict": true,
+        "contexts": [
+        "continuous-integration/travis-ci"
+        ]
+        },
+        "enforce_admins": true,
+        "required_pull_request_reviews": {
+        "dismissal_restrictions": {
+        "users": [
+        "octocat"
+        ],
+        "teams": [
+        ""
+        ]
+        },
         "dismiss_stale_reviews": true,
+        "require_code_owner_reviews": true,
+        "required_approving_review_count": 2,
         "require_last_push_approval": true,
         "bypass_pull_request_allowances": {
-            "users": ["root-edu"],
-            "teams": [],
-            "apps": []
-        },
+        "users": [
+        ""
+        ],
+        "teams": [
+        ""
+        ]
         }
-        "lock_branch": true
+        },
+        "restrictions": {
+        "users": [""],
+        "teams": [""],
+        "apps": [""]
+        },
+        "required_linear_history": true,
+        "allow_force_pushes": true,
+        "allow_deletions": true,
+        "block_creations": true,
+        "required_conversation_resolution": true,
+        "lock_branch": true,
+        "allow_fork_syncing": true
         }'
