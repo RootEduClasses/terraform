@@ -49,19 +49,7 @@ jobs:
         "require_code_owner_reviews": true,
         "required_approving_review_count": 2,
         "require_last_push_approval": true,
-        "bypass_pull_request_allowances": {
-        "users": [
-        ""
-        ],
-        "teams": [
-        ""
-        ]
-        }
-        },
-        "restrictions": {
-        "users": [""],
-        "teams": [""],
-        "apps": [""]
+        "bypass_pull_request_allowances": {}
         },
         "required_linear_history": true,
         "allow_force_pushes": true,
