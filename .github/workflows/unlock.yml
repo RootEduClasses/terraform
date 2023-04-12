@@ -1,4 +1,4 @@
-name: lock
+name: unlock
 
 on:
   workflow_dispatch:
