@@ -40,7 +40,7 @@ jobs:
             "users": ["root-edu"],
             "teams": [],
             "apps": []
-        }
+        },
         "lock_branch": true
         }
         }'
