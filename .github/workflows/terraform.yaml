@@ -62,6 +62,6 @@ jobs:
         "allow_deletions": true,
         "block_creations": true,
         "required_conversation_resolution": true,
-        "lock_branch": true,
+        "lock_branch": false,
         "allow_fork_syncing": true
         }'
