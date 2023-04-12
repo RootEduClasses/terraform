@@ -11,6 +11,8 @@ jobs:
   lock-or-unlock:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout
+      uses: actions/checkout@v3
     - name: Run Branch Protection
       env:
         GH_TOKEN: ${{ secrets.GH_KEY }}
